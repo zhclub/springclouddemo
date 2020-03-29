@@ -1,0 +1,22 @@
+server:
+  port: 8888
+
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://localhost:8888/eureka/
+
+  # 配置自我保护机制
+  # eureka server90s未收到客户端的心跳，会认为该服务宕机，会注销该实例
+  # 避免这种情况的发生，可以开启eureka的自我保护机制，就不会注销实例
+  server:
+    enable-self-preservation: true
+
+spring:
+  application:
+    name: eurka-server
